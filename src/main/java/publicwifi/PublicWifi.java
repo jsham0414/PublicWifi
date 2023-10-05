@@ -114,7 +114,6 @@ public interface PublicWifi {
                 return;
             }
             
-
             String createQuery = getQuaryBuilder();
             statement.executeUpdate(createQuery.toString());
 

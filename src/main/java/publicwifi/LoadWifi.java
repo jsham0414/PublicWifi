@@ -147,8 +147,6 @@ public class LoadWifi implements PublicWifi {
             if (packet == null)
                 return null;
 
-            System.out.println(startIndex + "遺��꽣 " + Math.min(startIndex + limit, count) + "源뚯� " + packet.row.length);
-
             rowList.addAll(Arrays.asList(packet.row));
 
             startIndex += limit;
@@ -219,7 +217,7 @@ public class LoadWifi implements PublicWifi {
             inserted += ps.executeBatch().length;
 
             if (inserted != rowList.size()) {
-                System.out.println("�쟾�넚 �삤瑜�");
+                System.out.println("전송 오류");
             }
 
             ps.close();
