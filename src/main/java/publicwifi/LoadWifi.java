@@ -182,7 +182,7 @@ public class LoadWifi implements PublicWifi {
 
             statement.close();
 
-            String insertQuery = "INSERT INTO information (X_SWIFI_MGR_NO, X_SWIFI_WRDOFC, X_SWIFI_MAIN_NM, X_SWIFI_ADRES1, X_SWIFI_ADRES2, X_SWIFI_INSTL_FLOOR, X_SWIFI_INSTL_TY, X_SWIFI_INSTL_MBY, X_SWIFI_SVC_SE, X_SWIFI_CMCWR, X_SWIFI_CNSTC_YEAR, X_SWIFI_INOUT_DOOR, X_SWIFI_REMARS3, LAT, LNT, WORK_DTTM) " +
+            String insertQuery = "INSERT INTO information (no, offecer, name, address, detail_address, floor, type, organ, service, cmcwr, year, inout, environment, LAT, LNT, work_dttm) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = connection.prepareStatement(insertQuery);
@@ -239,22 +239,22 @@ public class LoadWifi implements PublicWifi {
     public String getQuaryBuilder() {
         StringBuilder createQuery = new StringBuilder();
         createQuery.append("CREATE TABLE " + getTableName() + " (");
-        createQuery.append("X_SWIFI_MGR_NO STRING PRIMARY KEY,");
-        createQuery.append("X_SWIFI_WRDOFC STRING,");
-        createQuery.append("X_SWIFI_MAIN_NM STRING,");
-        createQuery.append("X_SWIFI_ADRES1 STRING,");
-        createQuery.append("X_SWIFI_ADRES2 STRING,");
-        createQuery.append("X_SWIFI_INSTL_FLOOR STRING,");
-        createQuery.append("X_SWIFI_INSTL_TY STRING,");
-        createQuery.append("X_SWIFI_INSTL_MBY STRING,");
-        createQuery.append("X_SWIFI_SVC_SE STRING,");
-        createQuery.append("X_SWIFI_CMCWR STRING,");
-        createQuery.append("X_SWIFI_CNSTC_YEAR STRING,");
-        createQuery.append("X_SWIFI_INOUT_DOOR STRING,");
-        createQuery.append("X_SWIFI_REMARS3 STRING,");
+        createQuery.append("no STRING PRIMARY KEY,");
+        createQuery.append("offecer STRING,");
+        createQuery.append("name STRING,");
+        createQuery.append("address STRING,");
+        createQuery.append("detail_address STRING,");
+        createQuery.append("floor STRING,");
+        createQuery.append("type STRING,");
+        createQuery.append("organ STRING,");
+        createQuery.append("service STRING,");
+        createQuery.append("cmcwr STRING,");
+        createQuery.append("year STRING,");
+        createQuery.append("inout STRING,");
+        createQuery.append("environment STRING,");
         createQuery.append("LAT STRING,");
         createQuery.append("LNT STRING,");
-        createQuery.append("WORK_DTTM STRING");
+        createQuery.append("work_dttm STRING");
         createQuery.append(");");
 
         return createQuery.toString();

@@ -27,7 +27,7 @@ public class History implements PublicWifi {
 
 			statement = connection.createStatement();
 			
-			String insertQuery = "INSERT INTO " + getTableName() + " (ip, x, y, date) " + "VALUES (\"" + ip + "\", \"" + lat + "\", \"" + lnt + "\", \"" + formatedNow + "\");";
+			String insertQuery = "INSERT INTO " + getTableName() + " (ip, LAT, LNT, date) " + "VALUES (\"" + ip + "\", \"" + lat + "\", \"" + lnt + "\", \"" + formatedNow + "\");";
 			
 			System.out.println(insertQuery);
 
@@ -63,14 +63,15 @@ public class History implements PublicWifi {
 			System.out.println(selectQuery);
 
 			rs = statement.executeQuery(selectQuery);
-
+			
+			
 			while (rs.next()) {
 				HistoryInfo info = new HistoryInfo();
 
 				info.id = rs.getInt("id");
 				info.ip = rs.getString("ip");
-				info.x = rs.getString("x");
-				info.y = rs.getString("y");
+				info.LAT = rs.getString("LAT");
+				info.LNT = rs.getString("LNT");
 				info.date = rs.getString("date");
 				
 				historyList.add(info);
@@ -128,15 +129,15 @@ public class History implements PublicWifi {
 		createQuery.append("CREATE TABLE " + getTableName() + " (");
 		createQuery.append("id INTEGER PRIMARY KEY AUTOINCREMENT,");
 		createQuery.append("ip STRING,");
-		createQuery.append("x STRING,");
-		createQuery.append("y STRING,");
+		createQuery.append("LAT STRING,");
+		createQuery.append("LNT STRING,");
 		createQuery.append("date STRING");
 		createQuery.append(");");
 
 		return createQuery.toString();
 	}
 
-    public String getTable(ArrayList<HistoryInfo> historyList) {
+    public String getTable(ArrayList<HistoryInfo> historyList) throws SQLException {
         StringBuilder sb = new StringBuilder();
 
         sb.append("\t<table id=\"customers\">\n");
@@ -157,8 +158,8 @@ public class History implements PublicWifi {
         	HistoryInfo info = historyList.get(i);
             sb.append("\t\t<tr>\n");
             sb.append("\t\t\t<td>" + (i + 1) + "</td>\n");
-            sb.append("\t\t\t<td>" + info.x + "</td>\n");
-            sb.append("\t\t\t<td>" + info.y + "</td>\n");
+            sb.append("\t\t\t<td>" + info.LAT + "</td>\n");
+            sb.append("\t\t\t<td>" + info.LNT + "</td>\n");
             sb.append("\t\t\t<td>" + info.date + "</td>\n");
             sb.append("\t\t\t<td>\n");
             sb.append("\t\t\t\t<center>\n");

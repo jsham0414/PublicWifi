@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy -->
 <style>
 #customers table {
 	text-align: center;

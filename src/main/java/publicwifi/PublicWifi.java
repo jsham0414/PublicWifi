@@ -5,7 +5,6 @@ import java.sql.*;
 
 import javax.servlet.http.HttpServletRequest;
 
-// https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy
 public interface PublicWifi {
     final static String key = "54526250576a7368313135506241634a";
     final static String dbName = "publicwifi";
@@ -68,8 +67,8 @@ public interface PublicWifi {
     public class HistoryInfo {
         int id;
         String ip;
-        String x;
-        String y;
+        String LAT;
+        String LNT;
         String date;
     }
 
